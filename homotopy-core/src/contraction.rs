@@ -652,7 +652,7 @@ fn colimit_recursive<Ix: IndexType>(
     // components.
 
     // each node of delta is keyed by the NodeIndex of exploded from where it originates
-    let mut delta: DiGraphMap<NodeIndex<ExplodedIx>, ()> = Default::default();
+    let mut delta = DiGraphMap::<NodeIndex<ExplodedIx>, ()>::default();
 
     // construct each object of the Δ diagram
     // these should be the singular heights of the n-diagrams from the input which themselves
@@ -750,7 +750,7 @@ fn colimit_recursive<Ix: IndexType>(
     let regular_monotone: Vec<Vec<_>> = {
         let mut regular_monotone: Vec<Vec<NodeIndex<ExplodedIx>>> =
             Vec::with_capacity(linear_components.len() + 1);
-        let mut parent_by_height: Vec<NodeIndex<Ix>> = Default::default();
+        let mut parent_by_height = vec![];
         // invariant: ∀ m ∈ regular_monotone. m.len() == parent_by_height.len()
         regular_monotone.push(
             // all targeting Regular(0)
@@ -1000,8 +1000,8 @@ fn colimit_recursive<Ix: IndexType>(
                     .parent
             }) {
                 // each rewrite that will go into legs[graph_ix] from cocone
-                let mut cone_regular_slices: Vec<Rewrite> = Default::default();
-                let mut cone_singular_slices: Vec<Rewrite> = Default::default();
+                let mut cone_regular_slices = vec![];
+                let mut cone_singular_slices = vec![];
                 for (restriction_ix, slice) in slices {
                     match exploded[restriction_to_exploded[restriction_ix]].key.height {
                         Height::Regular(_) => cone_regular_slices.push(slice.clone()),

@@ -42,7 +42,7 @@ impl Component for SliceControl {
         Self {
             translate: 0.0,
             scale: 1.0,
-            node_ref: Default::default(),
+            node_ref: <_>::default(),
             callback_idx,
         }
     }

@@ -231,7 +231,7 @@ where
         InternalEdgeMap: FnMut(G::NodeId, &G::NodeKey, InternalRewrite) -> Option<G2::EdgeKey>,
         ExternalEdgeMap: FnMut(G::EdgeId, &G::EdgeKey, ExternalRewrite) -> Option<G2::EdgeKey>,
     {
-        let mut graph: G2 = Default::default();
+        let mut graph = G2::default();
 
         let mut nodes = IdxVec::splat(vec![], self.node_count());
         let mut internal_edges = IdxVec::splat(vec![], self.node_count());

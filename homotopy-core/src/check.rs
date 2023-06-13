@@ -55,7 +55,7 @@ impl DiagramN {
         }
 
         let mut slice = self.source();
-        let mut errors: Vec<MalformedDiagram> = Vec::new();
+        let mut errors = vec![];
 
         // Check that the source slice is well-formed.
         if mode == Mode::Deep {
@@ -161,7 +161,7 @@ impl RewriteN {
             };
         }
 
-        let mut errors: Vec<MalformedRewrite> = Vec::new();
+        let mut errors = vec![];
         for (i, cone) in self.cones().iter().enumerate() {
             if let Err(e) = cone.check(mode) {
                 errors.push(MalformedRewrite::Cone(i, e));

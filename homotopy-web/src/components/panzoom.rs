@@ -18,7 +18,7 @@ pub struct PanZoomState {
 impl Default for PanZoomState {
     fn default() -> Self {
         Self {
-            translate: Default::default(),
+            translate: <_>::default(),
             scale: 1.0,
             mouse: None,
             touches: vec![],
@@ -94,7 +94,7 @@ impl TouchInterface for PanZoomState {
     }
 
     fn reset(&mut self) -> bool {
-        self.translate = Default::default();
+        self.translate = <_>::default();
         self.scale = 1.0;
         true
     }
@@ -219,7 +219,7 @@ impl Component for PanZoomComponent {
 }
 
 std::thread_local! {
-    pub static PANZOOM_STATE: Delta<PanZoomState> = Default::default();
+    pub static PANZOOM_STATE: Delta<PanZoomState> = <_>::default();
 }
 
 // Delta<PanZoomState>
@@ -227,11 +227,11 @@ pub struct PanZoom();
 
 impl PanZoom {
     pub fn zoom_in() {
-        PANZOOM_STATE.with(|s| s.emit(&TouchAction::MouseWheel(Default::default(), -20.0)));
+        PANZOOM_STATE.with(|s| s.emit(&TouchAction::MouseWheel(<_>::default(), -20.0)));
     }
 
     pub fn zoom_out() {
-        PANZOOM_STATE.with(|s| s.emit(&TouchAction::MouseWheel(Default::default(), 20.0)));
+        PANZOOM_STATE.with(|s| s.emit(&TouchAction::MouseWheel(<_>::default(), 20.0)));
     }
 
     pub fn reset() {

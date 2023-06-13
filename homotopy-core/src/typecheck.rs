@@ -142,7 +142,7 @@ fn target_points(rewrites: &[Rewrite]) -> Vec<(Point, Generator)> {
         .iter()
         .all(|r| r.dimension() == rewrites[0].dimension()));
 
-    let mut target_rewrites: FastHashMap<usize, Vec<Rewrite>> = Default::default();
+    let mut target_rewrites = FastHashMap::<usize, Vec<Rewrite>>::default();
 
     for rewrite in rewrites.iter() {
         let rewrite: RewriteN = rewrite.clone().try_into().unwrap();
@@ -163,7 +163,7 @@ fn target_points(rewrites: &[Rewrite]) -> Vec<(Point, Generator)> {
         }
     }
 
-    let mut targets = Vec::new();
+    let mut targets = vec![];
 
     for (target_height, rewrite_slices) in &target_rewrites {
         targets.extend(target_points(rewrite_slices).into_iter().map(|mut p| {

@@ -138,7 +138,7 @@ impl Program {
         uniforms: Vec<&'static str>,
     ) -> Result<Self> {
         let attributes = {
-            let mut map: FastHashMap<_, _> = Default::default();
+            let mut map = FastHashMap::<_, _>::default();
 
             for (i, attribute) in attributes.into_iter().enumerate() {
                 if map.insert(attribute, i as u32).is_some() {

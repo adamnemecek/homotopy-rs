@@ -52,10 +52,10 @@ prop_compose! {
             }
         };
 
-        let mut regular_slices = Vec::new();
-        let mut singular_slices = Vec::new();
+        let mut regular_slices = vec![];
+        let mut singular_slices = vec![];
         let mut sources_remaining = sources.as_slice();
-        let mut targets = Vec::new();
+        let mut targets = vec![];
         while !sources_remaining.is_empty() && !cone_sizes.is_empty() {
             // add a new cone
             let (size_index, target) = cone_sizes.pop().unwrap();

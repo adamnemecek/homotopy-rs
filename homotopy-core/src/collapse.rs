@@ -343,7 +343,7 @@ impl Diagram {
         G::EdgeId: Idx,
     {
         // Construct the fully exploded scaffold of the diagram.
-        let mut scaffold: G = Default::default();
+        let mut scaffold = G::default();
         let dimension = self.dimension();
         scaffold.add_node(self.into());
         for _ in 0..dimension {
@@ -351,12 +351,9 @@ impl Diagram {
                 .explode_simple(
                     |_, key, si| match si {
                         SliceIndex::Boundary(_) => None,
-                        SliceIndex::Interior(h) => Some(
-                            Clone::clone(key)
-                                .into_iter()
-                                .chain(std::iter::once(h))
-                                .collect(),
-                        ),
+                        SliceIndex::Interior(h) => {
+                            Some(key.clone().into_iter().chain(std::iter::once(h)).collect())
+                        }
                     },
                     |_, _, _| Some(()),
                     |_, _, _| Some(()),

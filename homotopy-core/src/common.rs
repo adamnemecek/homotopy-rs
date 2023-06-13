@@ -263,7 +263,7 @@ impl BoundaryPath {
         use SliceIndex::{Boundary, Interior};
 
         let mut boundary_path: Option<Self> = None;
-        let mut interior = Vec::new();
+        let mut interior = vec![];
 
         for height in path.iter().rev() {
             match (&mut boundary_path, height) {

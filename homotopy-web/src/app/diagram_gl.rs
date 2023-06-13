@@ -27,7 +27,7 @@ mod renderer;
 mod scrub_controls;
 
 std::thread_local! {
-    pub static CAMERA: Delta<OrbitCamera> = Default::default();
+    pub static CAMERA: Delta<OrbitCamera> = <_>::default();
 }
 
 pub struct GlViewControl {}

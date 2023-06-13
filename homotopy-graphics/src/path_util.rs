@@ -7,7 +7,7 @@ use crate::svg::{render::GraphicElement, shape::Point};
 
 pub fn simplify_graphic<const N: usize>(graphic: &[GraphicElement<N>]) -> Vec<GraphicElement<N>> {
     let mut new_graphic = Vec::with_capacity(graphic.len());
-    let mut point_elements = Vec::new();
+    let mut point_elements = vec![];
 
     // (depth, gen) -> Vec<(path, start, end)>
     let mut grouped_wires =
@@ -85,7 +85,7 @@ pub fn simplify_graphic<const N: usize>(graphic: &[GraphicElement<N>]) -> Vec<Gr
             g,
             depth,
             simplify_path(&merged_path.build()),
-            Vec::new(),
+            vec![],
         ));
     }
     new_graphic.extend(point_elements);

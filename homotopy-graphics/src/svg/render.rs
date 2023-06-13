@@ -58,9 +58,9 @@ impl<const N: usize> ActionRegion<N> {
         layout: &Layout<N>,
         projection: &Projection<N>,
     ) -> Vec<Self> {
-        let mut region_surfaces = Vec::new();
-        let mut region_wires = Vec::new();
-        let mut region_points = Vec::new();
+        let mut region_surfaces = vec![];
+        let mut region_wires = vec![];
+        let mut region_points = vec![];
 
         for (simplex, _) in complex
             .iter()
@@ -168,9 +168,9 @@ impl<const N: usize> GraphicElement<N> {
         projection: &Projection<N>,
         depths: &Depths<N>,
     ) -> Vec<Self> {
-        let mut wire_elements = Vec::new();
-        let mut surface_elements = Vec::new();
-        let mut point_elements = Vec::new();
+        let mut wire_elements = vec![];
+        let mut surface_elements = vec![];
+        let mut point_elements = vec![];
 
         let mut grouped_surfaces = FastHashMap::<Diagram0, Vec<[Coordinate<N>; 3]>>::default();
 
@@ -340,10 +340,10 @@ where
     }
 
     // Extract the remaining circular paths.
-    let mut paths = Vec::new();
+    let mut paths = vec![];
 
     for start in 0..edges.len() {
-        let mut path = Vec::new();
+        let mut path = vec![];
         let mut current = start;
 
         while let Some(data) = std::mem::take(&mut edges[current]) {

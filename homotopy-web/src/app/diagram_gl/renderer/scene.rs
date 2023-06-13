@@ -125,7 +125,7 @@ impl Scene {
         self.sphere = None;
         self.cube = None;
 
-        let mut sphere_mesh: SimplicialGeometry = Default::default();
+        let mut sphere_mesh = SimplicialGeometry::default();
         let p = sphere_mesh.mk_vert(VertData {
             position: Vec4::zero(),
             boundary: [false; 4],
@@ -142,7 +142,7 @@ impl Scene {
             )?));
         }
 
-        let mut cube_mesh: SimplicialGeometry = Default::default();
+        let mut cube_mesh = SimplicialGeometry::default();
         let p = cube_mesh.mk_vert(VertData {
             position: Vec4::zero(),
             boundary: [false; 4],

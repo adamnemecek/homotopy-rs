@@ -158,8 +158,8 @@ impl Rewrite {
                         rewrite_cache,
                     ),
                 };
-                let mut regular_slices: Vec<_> = Default::default();
-                let mut singular_slices: Vec<_> = Default::default();
+                let mut regular_slices = vec![];
+                let mut singular_slices = vec![];
                 base.slices()
                     .enumerate()
                     .for_each(|(i, slice)| match Height::from(i) {
@@ -509,7 +509,7 @@ impl RewriteN {
 
     #[inline]
     pub fn identity(dimension: usize) -> Self {
-        Self::new(dimension, Vec::new())
+        Self::new(dimension, vec![])
     }
 
     #[inline]
@@ -542,7 +542,7 @@ impl RewriteN {
         regular_slices: Vec<Vec<Rewrite>>,
         singular_slices: Vec<Vec<Rewrite>>,
     ) -> Self {
-        let mut cones = Vec::new();
+        let mut cones = vec![];
         let mut index = 0;
 
         for (target, (rss, sss)) in regular_slices.into_iter().zip(singular_slices).enumerate() {
@@ -629,7 +629,7 @@ impl RewriteN {
 
     /// For each cone, find its target singular height
     pub fn targets(&self) -> Vec<usize> {
-        let mut targets = Vec::new();
+        let mut targets = vec![];
         let mut offset: isize = 0;
 
         for cone in self.cones() {
@@ -680,7 +680,7 @@ impl RewriteN {
 
         let mut f_cones: Vec<Cone> = self.cones().iter().rev().cloned().collect();
         let mut g_cones: Vec<Cone> = g.cones().iter().rev().cloned().collect();
-        let mut cones: Vec<Cone> = Vec::new();
+        let mut cones = vec![];
 
         loop {
             match (f_cones.pop(), g_cones.pop()) {

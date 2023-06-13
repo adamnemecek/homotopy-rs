@@ -220,9 +220,9 @@ impl Component for ItemView {
             SignatureItem::Folder(info) => info.name.clone(),
         };
         Self {
-            mode: Default::default(),
+            mode: <_>::default(),
             name,
-            preview_cache: Default::default(),
+            preview_cache: <_>::default(),
             callback_idx,
         }
     }

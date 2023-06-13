@@ -16,12 +16,12 @@ impl GBuffer {
         let positions = ctx.mk_texture_with_opts(&TextureOpts {
             internal_format: InternalFormat::Rgba16F,
             type_: Type::Float,
-            ..Default::default()
+            ..<_>::default()
         })?;
         let normals = ctx.mk_texture_with_opts(&TextureOpts {
             internal_format: InternalFormat::Rgba16F,
             type_: Type::Float,
-            ..Default::default()
+            ..<_>::default()
         })?;
         let albedo = ctx.mk_texture()?;
         let renderbuffer = ctx.mk_renderbuffer()?;

@@ -85,7 +85,7 @@ pub struct History {
 
 impl Default for History {
     fn default() -> Self {
-        let snapshots: Tree<Snapshot> = Default::default();
+        let snapshots = Tree::<Snapshot>::default();
         let current = snapshots.root();
         Self { snapshots, current }
     }

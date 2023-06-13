@@ -2,7 +2,7 @@ pub use homotopy_model::{history::Proof, proof::Action, serialize};
 
 fn actions_test_helper(json: &str) -> Proof {
     let (_safe, actions): (bool, Vec<Action>) = serde_json::from_str(json).unwrap();
-    let mut proof: Proof = Default::default();
+    let mut proof = Proof::default();
 
     for a in &actions {
         proof

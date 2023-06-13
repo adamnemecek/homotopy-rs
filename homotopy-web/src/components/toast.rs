@@ -93,7 +93,7 @@ impl State for ToasterState {
 }
 
 std::thread_local! {
-    pub static TOASTER: Delta<ToasterState> = Default::default();
+    pub static TOASTER: Delta<ToasterState> = <_>::default();
 }
 
 pub struct ToasterComponent {

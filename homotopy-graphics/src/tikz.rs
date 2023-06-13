@@ -107,10 +107,10 @@ pub fn render(
         &depths,
     ));
 
-    let mut surfaces = Vec::default();
-    let mut wires: FastHashMap<usize, Vec<(Diagram0, Path)>> = FastHashMap::default();
-    let mut points = Vec::default();
-    let mut diagrams: FastHashSet<_> = Default::default();
+    let mut surfaces = vec![];
+    let mut wires = FastHashMap::<usize, Vec<(Diagram0, Path)>>::default();
+    let mut points = vec![];
+    let mut diagrams = FastHashSet::default();
     for element in graphic {
         match element {
             GraphicElement::Surface(g, path) => {

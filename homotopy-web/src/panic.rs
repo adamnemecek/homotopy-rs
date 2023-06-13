@@ -30,7 +30,7 @@ static CRASH_INFO: Mutex<CrashDump> = Mutex::new(CrashDump::new());
 impl CrashDump {
     const fn new() -> Self {
         Self {
-            actions: Vec::new(),
+            actions: vec![],
             import: None,
         }
     }
