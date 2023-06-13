@@ -305,20 +305,20 @@ pub enum OldProofError {
 }
 
 impl From<serde_json::Error> for OldProofError {
-    fn from(err: serde_json::Error) -> OldProofError {
-        OldProofError::Parse(err)
+    fn from(err: serde_json::Error) -> Self {
+        Self::Parse(err)
     }
 }
 
 impl From<base64::DecodeError> for OldProofError {
-    fn from(err: base64::DecodeError) -> OldProofError {
-        OldProofError::Decode(err)
+    fn from(err: base64::DecodeError) -> Self {
+        Self::Decode(err)
     }
 }
 
 impl From<std::io::Error> for OldProofError {
-    fn from(err: std::io::Error) -> OldProofError {
-        OldProofError::Io(err)
+    fn from(err: std::io::Error) -> Self {
+        Self::Io(err)
     }
 }
 
