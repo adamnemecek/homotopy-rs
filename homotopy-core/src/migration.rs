@@ -159,7 +159,7 @@ impl OldProof {
                     from_value(self.stored[index][1]["f"]["data"]["_l"].clone())?;
                 let cospans_data = self.generate_vec(cospans_index)?;
 
-                let mut cospans: Vec<Cospan> = Vec::new();
+                let mut cospans = vec![];
                 for v in cospans_data {
                     let i: usize = from_value(v["_l"].clone())?;
                     let c = self.load_cospan(i)?;
@@ -219,7 +219,7 @@ impl OldProof {
 
                 Rewrite0::new(source, target, None).into()
             } else {
-                let mut cones: Vec<Cone> = Vec::new();
+                let mut cones = vec![];
                 for v in cones_data {
                     let i: usize = from_value(v["_l"].clone())?;
                     let c = self.load_cone(i)?;
@@ -246,7 +246,7 @@ impl OldProof {
 
         // Source and target
         let source_data = self.generate_vec(source_index)?;
-        let mut source: Vec<Cospan> = Vec::new();
+        let mut source = vec![];
         for v in source_data {
             let i: usize = from_value(v["_l"].clone())?;
             let c = self.load_cospan(i)?;
@@ -256,7 +256,7 @@ impl OldProof {
 
         // Slices
         let sublimits = self.generate_vec(slices_index)?;
-        let mut singular_slices: Vec<Rewrite> = Vec::new();
+        let mut singular_slices = vec![];
         for v in sublimits {
             let i: usize = from_value(v["_l"].clone())?;
             let c = self.load_rewrite(i)?;
