@@ -133,8 +133,8 @@ impl Component for PanZoomComponent {
         });
 
         Self {
-            node_ref: Default::default(),
-            translate: Default::default(),
+            node_ref: <_>::default(),
+            translate: <_>::default(),
             scale: 1.0,
             callback_idx,
         }

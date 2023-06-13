@@ -74,8 +74,8 @@ impl Diagram {
                 }
             }
         }
-        let mut gs: FastHashMap<Generator, FastHashSet<Orientation>> = Default::default();
-        let mut visited: FastHashSet<Self> = Default::default();
+        let mut gs = FastHashMap::<Generator, FastHashSet<Orientation>>::default();
+        let mut visited = FastHashSet::<Self>::default();
         add_generators(self, &mut gs, &mut visited);
         gs
     }
@@ -281,7 +281,7 @@ impl Diagram0 {
                 self.suspended(),
                 Some(Label::new(
                     BoundaryPath(Boundary::Source, self.generator.dimension),
-                    Default::default(),
+                    <_>::default(),
                 )),
             )
             .into();
@@ -290,7 +290,7 @@ impl Diagram0 {
                 self.suspended(),
                 Some(Label::new(
                     BoundaryPath(Boundary::Target, self.generator.dimension),
-                    Default::default(),
+                    <_>::default(),
                 )),
             )
             .into();
@@ -364,9 +364,9 @@ impl DiagramN {
             return Err(NewDiagramError::NonGlobular);
         }
 
-        let mut seen = Default::default();
-        let mut store = Default::default();
-        let mut rewrite_cache = Default::default();
+        let mut seen = <_>::default();
+        let mut store = <_>::default();
+        let mut rewrite_cache = <_>::default();
         let cospan = Cospan {
             forward: Rewrite::cone_over_generator(
                 generator,

@@ -34,7 +34,7 @@ impl Default for SignatureItem {
     fn default() -> Self {
         Self::Folder(FolderInfo {
             id: 0,
-            name: Default::default(),
+            name: <_>::default(),
             open: true,
         })
     }
@@ -135,7 +135,7 @@ impl Signature {
             invertible,
             single_preview: true,
             color: Color::from_str(COLORS[generator.id % COLORS.len()]).unwrap(),
-            shape: Default::default(),
+            shape: <_>::default(),
             diagram,
         };
 

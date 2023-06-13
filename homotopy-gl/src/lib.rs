@@ -63,7 +63,7 @@ mod ctx {
         pub(super) fn new(ctx: WebGl2RenderingContext) -> Self {
             Self(Rc::new(GlCtxInner {
                 ctx,
-                resize_hooks: Default::default(),
+                resize_hooks: <_>::default(),
             }))
         }
 

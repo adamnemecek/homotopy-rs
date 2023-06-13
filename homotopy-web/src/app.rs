@@ -190,7 +190,7 @@ impl App {
                     signature={proof.signature.clone()}
                 />
             },
-            None => Default::default(),
+            None => <_>::default(),
         };
 
         let spinner = if loading {

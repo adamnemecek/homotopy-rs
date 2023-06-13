@@ -60,7 +60,7 @@ fn import_hom(path: &PathBuf) -> anyhow::Result<Proof> {
             .map_err(|e| anyhow!("Workspace diagram deep check failed: {:?}", e))?;
     }
 
-    let mut proof: Proof = Default::default();
+    let mut proof = Proof::default();
     proof.signature = signature;
     proof.workspace = workspace;
     proof.metadata = metadata;
@@ -81,12 +81,12 @@ fn main() -> anyhow::Result<()> {
     let opt = Opt::from_args();
     let mut proof = match opt.input_hom {
         Some(path) => import_hom(&path).context("Could not import .hom file.")?,
-        None => Default::default(),
+        None => <_>::default(),
     };
 
     let (actions, last_action) = match opt.input_actions {
         Some(path) => import_actions(&path).context("Could not import action file.")?,
-        None => Default::default(),
+        None => <_>::default(),
     };
 
     for a in &actions {

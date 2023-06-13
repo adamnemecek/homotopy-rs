@@ -93,7 +93,7 @@ impl OrbitCamera {
 impl Default for OrbitCamera {
     fn default() -> Self {
         Self {
-            target: Default::default(),
+            target: <_>::default(),
             phi: Self::DEFAULT_PHI,
             theta: Self::DEFAULT_THETA,
             distance: Self::DEFAULT_DISTANCE,
@@ -152,7 +152,7 @@ impl TouchInterface for OrbitCamera {
     }
 
     fn reset(&mut self) -> bool {
-        *self = Default::default();
+        *self = <_>::default();
         true
     }
 }

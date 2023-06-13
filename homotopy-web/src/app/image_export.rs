@@ -44,7 +44,7 @@ impl Component for ImageExportView {
 
     fn view(&self, ctx: &Context<Self>) -> Html {
         let default_text = if ctx.props().view_dim == 2 || ctx.props().view_dim == 3 {
-            Default::default()
+            <_>::default()
         } else {
             html! {
                 <p>{
@@ -99,7 +99,7 @@ impl ImageExportView {
                 </>
             }
         } else {
-            Default::default()
+            <_>::default()
         }
     }
 
@@ -114,7 +114,7 @@ impl ImageExportView {
                 </>
             }
         } else {
-            Default::default()
+            <_>::default()
         }
     }
 
@@ -137,7 +137,7 @@ impl ImageExportView {
                 </>
             }
         } else {
-            Default::default()
+            <_>::default()
         }
     }
 
@@ -152,7 +152,7 @@ impl ImageExportView {
                 </>
             }
         } else {
-            Default::default()
+            <_>::default()
         }
     }
 

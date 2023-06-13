@@ -46,10 +46,10 @@ where
     #[inline]
     pub fn new() -> Self {
         Self {
-            forward: Default::default(),
-            reverse: Default::default(),
-            raw: Default::default(),
-            free: Default::default(),
+            forward: <_>::default(),
+            reverse: <_>::default(),
+            raw: <_>::default(),
+            free: <_>::default(),
         }
     }
 

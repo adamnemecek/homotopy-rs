@@ -132,7 +132,7 @@ impl GlCtx {
     where
         T: Bufferable,
     {
-        self.mk_buffer_with_kind_and_usage(Default::default(), Default::default(), data)
+        self.mk_buffer_with_kind_and_usage(<_>::default(), <_>::default(), data)
     }
 
     /// # Safety
@@ -143,12 +143,7 @@ impl GlCtx {
     where
         U: UnsafeBufferable,
     {
-        self.mk_buffer_with_kind_and_usage_unchecked(
-            Default::default(),
-            Default::default(),
-            data,
-            len,
-        )
+        self.mk_buffer_with_kind_and_usage_unchecked(<_>::default(), <_>::default(), data, len)
     }
 
     #[inline]
@@ -202,7 +197,7 @@ impl<T> Buffer<T> {
 
         let buffer = Self {
             buffer: Rc::new(untyped_buffer),
-            _phantom: Default::default(),
+            _phantom: <_>::default(),
         };
 
         Ok(buffer)

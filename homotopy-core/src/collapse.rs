@@ -232,7 +232,7 @@ where
     // collapse subproblems need to be solved in topological order, with the root being the final one
     declare_idx! { struct TreeIx = DefaultIx; }
     let tree = {
-        let mut tree: DiGraph<_, _, TreeIx> = Default::default();
+        let mut tree = DiGraph::<_, _, TreeIx>::default();
         let root = tree.add_node((None, OnceCell::new()));
         for (ix, ScaffoldNode { key, .. }) in graph.node_references() {
             let mut cur = root;
@@ -276,7 +276,7 @@ where
         .edge_references()
         .collect();
         seen_edges.extend(edges.iter().map(EdgeRef::id));
-        let mut quotient: Vec<_> = Default::default();
+        let mut quotient = vec![];
         let label_set = |u: NodeIndex<Ix>, v: NodeIndex<Ix>| -> FastHashSet<Option<&Label>> {
             graph
                 .edges_connecting(u, v)

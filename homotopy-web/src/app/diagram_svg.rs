@@ -182,7 +182,7 @@ impl<const N: usize> Component for DiagramSvg<N> {
 
     fn create(ctx: &Context<Self>) -> Self {
         let prepared = PreparedDiagram::new(&ctx.props().diagram, ctx.props().style);
-        let drag_start = Default::default();
+        let drag_start = <_>::default();
         let title = String::new();
         Self {
             prepared,
@@ -433,7 +433,7 @@ impl<const N: usize> DiagramSvg<N> {
                 let shape = if let Some(info) = ctx.props().signature.generator_info(d.generator) {
                     info.shape.clone()
                 } else {
-                    Default::default()
+                    <_>::default()
                 };
                 match shape {
                     Circle => html! {
@@ -458,11 +458,11 @@ impl<const N: usize> DiagramSvg<N> {
 
     fn view_highlight(&self, ctx: &Context<Self>) -> Html {
         let Some(highlight) = ctx.props().highlight else {
-            return Default::default();
+            return <_>::default();
         };
 
         let (Some(from), Some(to)) = (self.position(highlight.from), self.position(highlight.to)) else {
-            return Default::default();
+            return <_>::default();
         };
 
         let padding = match highlight.kind {
@@ -592,7 +592,7 @@ fn drag_to_homotopy<const N: usize>(
 
             Some(Homotopy::Contract(Contract {
                 bias: None,
-                location: Default::default(),
+                location: <_>::default(),
                 height,
                 direction,
             }))

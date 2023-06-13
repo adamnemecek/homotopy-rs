@@ -160,7 +160,7 @@ impl Program {
             vertex_shader: vertex_shader.clone(),
             fragment_shader: fragment_shader.clone(),
             attributes,
-            uniforms: Default::default(),
+            uniforms: <_>::default(),
             webgl_program: allocated,
         };
 

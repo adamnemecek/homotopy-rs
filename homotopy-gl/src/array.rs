@@ -43,7 +43,7 @@ impl VertexArray {
 
         Ok(Self {
             ctx: ctx.ctx_handle(),
-            attributes: Default::default(),
+            attributes: <_>::default(),
             elements: elements.cloned(),
             len: 0,
             webgl_vao,

@@ -34,11 +34,11 @@ pub struct GlViewControl {}
 
 impl GlViewControl {
     pub fn zoom_in() {
-        CAMERA.with(|c| c.emit(&TouchAction::MouseWheel(Default::default(), -20.0)));
+        CAMERA.with(|c| c.emit(&TouchAction::MouseWheel(<_>::default(), -20.0)));
     }
 
     pub fn zoom_out() {
-        CAMERA.with(|c| c.emit(&TouchAction::MouseWheel(Default::default(), 20.0)));
+        CAMERA.with(|c| c.emit(&TouchAction::MouseWheel(<_>::default(), 20.0)));
     }
 
     pub fn reset() {
@@ -102,12 +102,12 @@ impl Component for DiagramGl {
         });
 
         Self {
-            canvas: Default::default(),
+            canvas: <_>::default(),
 
-            camera: Default::default(),
-            renderer: Default::default(),
-            global_t: Default::default(),
-            t_coord: Default::default(),
+            camera: <_>::default(),
+            renderer: <_>::default(),
+            global_t: <_>::default(),
+            t_coord: <_>::default(),
 
             render_loop: None,
 
@@ -184,7 +184,7 @@ impl Component for DiagramGl {
         let scrub = if Self::is_animated(ctx) {
             html! { <ScrubComponent slices={ctx.props().diagram.size().unwrap()} /> }
         } else {
-            Default::default()
+            <_>::default()
         };
 
         html! {

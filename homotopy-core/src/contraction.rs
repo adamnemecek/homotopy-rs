@@ -477,7 +477,7 @@ fn colimit_base<Ix: IndexType>(graph: &ContractGraph<Ix>) -> Result<Cocone<Ix>, 
     // Collect the orientations of the maximum-dimensional generator by subslice.
     let mut orientations = FastHashMap::<&[Height], Vec<Orientation>>::default();
 
-    let mut max_dims: Vec<_> = Default::default();
+    let mut max_dims = vec![];
     for (
         i,
         ScaffoldNode {
@@ -705,7 +705,7 @@ fn colimit_recursive<Ix: IndexType>(
     //    quotient graph
     let scc_to_priority: IdxVec<NodeIndex<QuotientIx>, (usize, Option<Bias>)> = {
         let mut scc_to_priority: IdxVec<NodeIndex<QuotientIx>, (usize, Option<Bias>)> =
-            IdxVec::splat(Default::default(), quotient.node_count());
+            IdxVec::splat(<_>::default(), quotient.node_count());
         for (i, scc) in quotient.node_references().rev() {
             let priority = quotient
                 .neighbors_directed(i, Incoming)

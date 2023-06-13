@@ -11,7 +11,7 @@ fn action() {
         })
         .unwrap_or_default()
         .into();
-    let mut state: State = Default::default();
+    let mut state = State::default();
     state
         .update(Proof(ImportProof(data)))
         .expect("failed to import");

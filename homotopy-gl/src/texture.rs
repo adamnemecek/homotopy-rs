@@ -216,6 +216,6 @@ impl GlCtx {
 
     #[inline]
     pub fn mk_texture(&self) -> Result<Texture> {
-        self.mk_texture_with_opts(&Default::default())
+        self.mk_texture_with_opts(&<_>::default())
     }
 }

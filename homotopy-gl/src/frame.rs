@@ -92,7 +92,7 @@ impl<'a> Draw<'a> {
             program,
             vertex_array,
             depth_test,
-            uniforms: Default::default(),
+            uniforms: <_>::default(),
             textures: textures.to_owned(),
         }
     }
@@ -125,7 +125,7 @@ impl<'a> Frame<'a> {
     pub fn new(ctx: &'a mut GlCtx) -> Self {
         Self {
             ctx,
-            opts: Default::default(),
+            opts: <_>::default(),
             draws: vec![],
         }
     }

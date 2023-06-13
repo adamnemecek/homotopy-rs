@@ -49,7 +49,7 @@ enum SignatureData {
 
 impl Default for SignatureData {
     fn default() -> Self {
-        Self::Folder(Default::default(), true)
+        Self::Folder(<_>::default(), true)
     }
 }
 
@@ -69,9 +69,9 @@ pub fn serialize(
     metadata: Metadata,
 ) -> Vec<u8> {
     let mut data = Data {
-        store: Default::default(),
-        signature: Default::default(),
-        workspace: Default::default(),
+        store: <_>::default(),
+        signature: <_>::default(),
+        workspace: <_>::default(),
         metadata,
     };
 
@@ -135,7 +135,7 @@ pub fn deserialize(data: &[u8]) -> Option<((Signature, Option<Workspace>), Metad
                     generator: gd.generator,
                     name: gd.name,
                     color: gd.color,
-                    shape: Default::default(),
+                    shape: <_>::default(),
                     diagram: store.unpack_diagram(gd.diagram)?,
                     oriented: gd.oriented,
                     invertible: gd.invertible,

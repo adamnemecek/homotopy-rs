@@ -62,7 +62,7 @@ impl Component for WorkspaceView {
         Self {
             on_select,
             on_homotopy,
-            diagram_ref: Default::default(),
+            diagram_ref: <_>::default(),
         }
     }
 
@@ -93,7 +93,7 @@ impl Component for WorkspaceView {
                     />
                 }
             }
-            _ => Default::default(),
+            _ => <_>::default(),
         };
         let toolbar = workspace.as_ref().map_or_else(
             Default::default,
@@ -145,7 +145,7 @@ impl WorkspaceView {
                 }
             }
         } else {
-            Default::default()
+            <_>::default()
         }
     }
 
@@ -176,7 +176,7 @@ impl WorkspaceView {
                 </PanZoomComponent>
             }
         } else {
-            Default::default()
+            <_>::default()
         }
     }
 }

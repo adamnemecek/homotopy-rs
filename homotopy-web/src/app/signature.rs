@@ -29,7 +29,7 @@ pub fn signature_view(props: &Props) -> Html {
             </div>
         }
     } else {
-        Default::default()
+        <_>::default()
     };
     html! {
         <div>

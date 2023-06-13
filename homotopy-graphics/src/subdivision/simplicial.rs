@@ -24,7 +24,7 @@ impl<'a> Subdivider<'a> {
         Self {
             edge_division_memory: FastHashMap::with_capacity_and_hasher(
                 geom.lines.len(),
-                Default::default(),
+                <_>::default(),
             ),
             valence: IdxVec::with_capacity(geom.verts.len()),
             smoothed: IdxVec::with_capacity(geom.verts.len()),

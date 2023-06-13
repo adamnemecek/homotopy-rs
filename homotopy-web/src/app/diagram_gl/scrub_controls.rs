@@ -136,7 +136,7 @@ impl Default for ScrubState {
             state: PlayState::Playing,
             speed: PlaybackSpeed::Normal,
             behaviour: LoopingBehaviour::Boomerang,
-            pushed: Default::default(),
+            pushed: <_>::default(),
         }
     }
 }
@@ -156,7 +156,7 @@ pub struct ScrubComponent {
 }
 
 thread_local! {
-    pub static SCRUB: Delta<ScrubState> = Default::default();
+    pub static SCRUB: Delta<ScrubState> = <_>::default();
 }
 
 impl Component for ScrubComponent {

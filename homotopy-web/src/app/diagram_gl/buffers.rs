@@ -53,7 +53,7 @@ where
 {
     fn new() -> Self {
         Self {
-            mapping: FastHashMap::with_capacity_and_hasher(VAO_LIMIT, Default::default()),
+            mapping: FastHashMap::with_capacity_and_hasher(VAO_LIMIT, <_>::default()),
             inner: B::State::alloc(),
         }
     }
@@ -79,8 +79,8 @@ where
             ctx,
             geom,
             global_state: B::new(geom),
-            local_state: Default::default(),
-            complete: Default::default(),
+            local_state: <_>::default(),
+            complete: <_>::default(),
         }
     }
 

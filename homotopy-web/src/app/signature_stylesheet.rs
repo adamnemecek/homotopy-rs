@@ -21,7 +21,7 @@ impl SignatureStylesheet {
         let element = document().create_element("style").unwrap();
         element.set_id("signature__stylesheet");
         Self {
-            signature: Default::default(),
+            signature: <_>::default(),
             element,
         }
     }

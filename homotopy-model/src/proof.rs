@@ -49,7 +49,7 @@ impl Workspace {
         Self {
             view: View { dimension },
             diagram,
-            path: Default::default(),
+            path: <_>::default(),
         }
     }
 
@@ -718,7 +718,7 @@ impl ProofState {
         }
 
         ws.diagram = ws.visible_diagram();
-        ws.path = Default::default();
+        ws.path = <_>::default();
 
         true
     }

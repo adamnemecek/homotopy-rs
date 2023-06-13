@@ -125,6 +125,6 @@ impl GlCtx {
 
     #[inline]
     pub fn mk_renderbuffer(&self) -> Result<Renderbuffer> {
-        self.mk_renderbuffer_with_opts(&Default::default())
+        self.mk_renderbuffer_with_opts(&<_>::default())
     }
 }
